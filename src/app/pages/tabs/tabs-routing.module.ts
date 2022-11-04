@@ -22,26 +22,58 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'people',
+        path: 'species',
         children: [
           {
             path: '',
-            loadChildren: () => import('../people/people.module').then( m => m.PeoplePageModule)
-          }
-        ]
-      },
-      {
-        path: 'planets',
+            loadChildren: () => import('../species/species.module').then( m => m.SpeciesPageModule)
+          },
+          {
+            path: ':id',
+          loadChildren: () => import('../species-details/species-details.module').then( m => m.SpeciesDetailsPageModule)
+        }
+      ]
+    },
+    {
+        path: 'starships',
         children: [
           {
             path: '',
-            loadChildren: () => import('../planets/planets.module').then( m => m.PlanetsPageModule)
-          }
-        ]
+            loadChildren: () => import('../starships/starships.module').then( m => m.StarshipsPageModule)
+          },
+          {
+            path: ':id',
+          loadChildren: () => import('../starships-details/starships-details.module').then( m => m.StarshipsDetailsPageModule)
+        }
+      ]
+    },
+    {
+      path: 'specimen-details',
+      children: [
+        {
+          path: '',
+          loadChildren: () => import('../specimen-details/specimen-details.module').then( m => m.Specimen-detailsPageModule)
+        },
+        {
+          path: ':id',
+        loadChildren: () => import('../specimen-details-details/specimen-details-details.module').then( m => m.Specimen-detailsDetailsPageModule)
       }
     ]
   },
   {
+    path: 'starships-details',
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('../starships-details/starships-details.module').then( m => m.Spaceship-detailsPageModule)
+      },
+      {
+        path: ':id',
+      loadChildren: () => import('../starships-details-details/starships-details-details.module').then( m => m.Spaceship-detailsDetailsPageModule)
+    }
+  ]
+},  
+{
     path: '',
     redirectTo: '/tabs/films',
     pathMatch: 'full'
