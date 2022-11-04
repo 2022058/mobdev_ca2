@@ -1,0 +1,34 @@
+	
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start" defaultHref="/tabs/(starships:starships)">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ starship?.name }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="unfavoriteStarship()" *ngIf="isFavorite">
+        <ion-icon name="star" slot="icon-only" color="secondary"></ion-icon>
+      </ion-button>
+      <ion-button (click)="favoriteStarship()" *ngIf="!isFavorite">
+        <ion-icon name="star-outline" slot="icon-only" color="secondary"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+ 
+<ion-content padding="">
+ 
+  <ion-card *ngIf="starship" class="movie-card">
+    <ion-card-header>Name {{ starship.name }}</ion-card-header>
+    <ion-card-content>
+      Model: {{ starship.model }}
+    </ion-card-content>
+ 
+    <ion-item class="movie-info" lines="none">
+      <ion-icon name="starship" slot="start"></ion-icon>
+      Manufacturer: {{ starship.manufacturer }}
+    </ion-item>
+ 
+  </ion-card>
+ 
+</ion-content>
