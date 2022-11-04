@@ -30,11 +30,11 @@ const routes: Routes = [
           },
           {
             path: ':id',
-          loadChildren: () => import('../species-details/species-details.module').then( m => m.SpeciesDetailsPageModule)
-        }
-      ]
-    },
-    {
+            loadChildren: () => import('../specimen-details/specimen-details.module').then( m => m.SpecimenDetailsPageModule)
+          }
+        ]
+      },
+      {
         path: 'starships',
         children: [
           {
@@ -43,39 +43,25 @@ const routes: Routes = [
           },
           {
             path: ':id',
-          loadChildren: () => import('../starships-details/starships-details.module').then( m => m.StarshipsDetailsPageModule)
-        }
-      ]
-    },
-    {
-      path: 'specimen-details',
-      children: [
-        {
-          path: '',
-          loadChildren: () => import('../specimen-details/specimen-details.module').then( m => m.Specimen-detailsPageModule)
-        },
-        {
-          path: ':id',
-        loadChildren: () => import('../specimen-details-details/specimen-details-details.module').then( m => m.Specimen-detailsDetailsPageModule)
+            loadChildren: () => import('../starship-details/starship-details.module').then( m => m.StarshipDetailsPageModule)
+          }
+        ]
       }
     ]
   },
   {
-    path: 'starships-details',
-    children: [
-      {
-        path: '',
-        loadChildren: () => import('../starships-details/starships-details.module').then( m => m.Spaceship-detailsPageModule)
-      },
-      {
-        path: ':id',
-      loadChildren: () => import('../starships-details-details/starships-details-details.module').then( m => m.Spaceship-detailsDetailsPageModule)
-    }
-  ]
-},  
-{
     path: '',
     redirectTo: '/tabs/films',
+    pathMatch: 'full'
+  },
+  {
+    path: '',
+    redirectTo: '/tabs/species',
+    pathMatch: 'full'
+  },
+  {
+    path: '',
+    redirectTo: '/tabs/starships',
     pathMatch: 'full'
   }
 ];
